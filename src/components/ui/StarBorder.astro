@@ -1,0 +1,63 @@
+---
+import { cn } from '../../lib/utils';
+
+interface Props {
+  as?: string;
+  color?: string;
+  speed?: string;
+  className?: string;
+}
+
+const { 
+  as = "button",
+  color = "#e17241",
+  speed = "6s",
+  className,
+} = Astro.props;
+
+const Tag = as;
+---
+
+<Tag 
+  class={cn(
+    "relative inline-block py-[1px] overflow-hidden rounded-[20px]",
+    className
+  )}
+>
+  <div
+    class={cn(
+      "absolute w-[300%] h-[50%] bottom-[-11px] right-[-250%] rounded-full animate-star-movement-bottom",
+      "opacity-50" 
+    )}
+    style={{
+      background: `radial-gradient(circle, ${color}, transparent 10%)`,
+      animationDuration: speed,
+    }}
+  />
+  <div
+    class={cn(
+      "absolute w-[300%] h-[50%] top-[-10px] left-[-250%] rounded-full animate-star-movement-top",
+      "opacity-50"
+    )}
+    style={{
+      background: `radial-gradient(circle, ${color}, transparent 10%)`,
+      animationDuration: speed,
+    }}
+  />
+  <div class="relative text-white text-center text-base py-4 px-6 rounded-[20px] border border-[#e17241] hover:bg-[#e17241] transition-colors duration-300">
+    <slot />
+  </div>
+</Tag>
+
+<style>
+  /* Ensure animations are visible */
+  @keyframes star-movement-bottom {
+    0% { transform: translate(0%, 0%); opacity: 1; }
+    100% { transform: translate(-100%, 0%); opacity: 0; }
+  }
+
+  @keyframes star-movement-top {
+    0% { transform: translate(0%, 0%); opacity: 1; }
+    100% { transform: translate(100%, 0%); opacity: 0; }
+  }
+</style>

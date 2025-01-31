@@ -1,0 +1,102 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<nav id="mainNav" class="fixed w-full z-50 transition-all duration-300 opacity-0">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-center h-16 items-center relative">
+      <!-- Left Menu Items -->
+      <div class="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-[260px]">
+        <a href="/docs" class="text-white hover:text-gray-300">Docs</a>
+        <a href="/tokenomics" class="text-white hover:text-gray-300">Tokenomics</a>
+      </div>
+
+      <!-- Logo -->
+      <div class="font-reospec font-bold text-2xl text-white">
+        IRMA
+      </div>
+
+      <!-- Right Menu Items -->
+      <div class="hidden md:flex items-center space-x-8 absolute left-1/2 translate-x-[100px]">
+        <a href="/vision" class="text-white hover:text-gray-300">Vision</a>
+        <a href="/twitter" class="text-white hover:text-gray-300 flex items-center">
+          Twitter
+          <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center space-x-4">
+        <button class="mobile-circle-btn">
+          <div class="w-6 h-6 border-2 border-white rounded-full"></div>
+        </button>
+        <button class="mobile-menu-btn">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu hidden md:hidden">
+    <div class="px-2 pt-2 pb-3 space-y-1 bg-black/80 backdrop-blur-sm">
+      <a href="/docs" class="block px-3 py-2 text-white">Docs</a>
+      <a href="/tokenomics" class="block px-3 py-2 text-white">Tokenomics</a>
+      <a href="/vision" class="block px-3 py-2 text-white">Vision</a>
+      <a href="/twitter" class="block px-3 py-2 text-white flex items-center">
+        Twitter
+        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  nav {
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  // Handle scroll effects
+  const nav = document.getElementById('mainNav');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 0) {
+      nav.classList.add('bg-black/30', 'backdrop-blur-sm');
+    } else {
+      nav.classList.remove('bg-black/30', 'backdrop-blur-sm');
+    }
+    
+    lastScroll = currentScroll;
+  });
+
+  // Mobile menu toggle
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>
