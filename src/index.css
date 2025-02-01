@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Reospec';
+  src: url('/fonts/Reospec.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --muted: 0 0% 15%;
+  --border: 0 0% 20%;
+}
+
+html {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background: #000;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.font-reospec {
+  font-family: 'Reospec', sans-serif !important;
+}
+
+/* Animation classes */
+.letter-animation-container {
+  display: flex;
+  gap: 80%;
+}
+
+.letter {
+  font-size: 8.64rem;
+  opacity: 0;
+  filter: blur(40px);
+  animation: fadeInBlur 2s forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes fadeInBlur {
+  0% {
+    opacity: 0;
+    filter: blur(40px);
+    transform: translateX(calc(var(--direction, 1) * 100vw));
+    letter-spacing: 4em;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    letter-spacing: normal;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s forwards;
+  animation-delay: 2s;
+}
+
+.animate-fade-in-delay {
+  animation: fadeIn 1s forwards;
+  animation-delay: 2.5s;
+}
+
+.animate-nav-fade-in {
+  animation: navFadeIn 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
