@@ -72,7 +72,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <div id="subtitle" className="text-2xl mb-8 tracking-wider text-center opacity-0 animate-fade-in mt-[200px] relative">
-          <div className="subtitle-text">
+          <div className="subtitle-text flex gap-6">
             <span>Intelligent</span>
             <span>Recursive</span>
             <span>Medium</span>
