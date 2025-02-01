@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [lastScroll, setLastScroll] = useState(0)
+  // const [lastScroll, setLastScroll] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +15,7 @@ export default function Navigation() {
         nav?.classList.remove('bg-black/30', 'backdrop-blur-sm')
       }
       
-      setLastScroll(currentScroll)
+      //setLastScroll(currentScroll)
     }
 
     window.addEventListener('scroll', handleScroll)
