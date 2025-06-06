@@ -53,9 +53,9 @@ export default function Hero() {
           playsInline
           muted
           loop
-          src="https://syntra.digital/wp-content/uploads/2025/01/loopv2.webm"
+          src="https://syntra.ai/wp-content/uploads/2025/01/loopv2.webm"
         >
-          <source src="https://syntra.digital/wp-content/uploads/2025/01/loopv2.webm" type="video/webm" />
+          <source src="https://syntra.ai/wp-content/uploads/2025/01/loopv2.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div>
